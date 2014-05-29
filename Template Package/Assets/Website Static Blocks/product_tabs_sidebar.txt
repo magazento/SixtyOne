@@ -1,0 +1,2 @@
+<p><img src="{{media url="wysiwyg/sidebar-banner-1.png"}}" alt="" /></p>
+<p><img src="{{media url="wysiwyg/sidebar-banner-2.png"}}" alt="" /></p>

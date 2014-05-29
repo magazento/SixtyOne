@@ -1,0 +1,74 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php $collection = $this->getReviews(); ?>
+<?php if(count($collection)): ?>
+
+<div class="section-heading">
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+    <div class="grid_6">
+        <h2><?php echo $this->__('Best Reviews') ?></h2>
+        <div class="dot-divider"></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nisi eget nunc laoreet posuere.
+            Suspendisse adipiscing placerat augue, dictum blandit justo laoreet a. Pellentesque quam vitae
+            urna fermentum elementum. </p>
+    </div>
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+</div>
+
+<div class="widget-reviews">
+        <section class="block-content iosSlider-reviews">
+            <ul class="review-slider-items">
+                <?php foreach ($collection as $_item): ?>
+                    <li class="item">
+                        <div class="review-item">
+                            <div class="review-top">
+                            </div>
+                            <div class="review-content">
+                                <a class="product-image" 
+                                   href="<?php echo $_item->getProductUrl() ?>" 
+                                   title="<?php echo $this->htmlEscape($_item->getName()) ?>">
+                                    <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50,61); ?>" 
+                                         alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                                </a>      
+                                <p class="author-name"> <?php echo $_item->getNickname() ?> </a></p>
+                                <p class="product-name"> <a href="<?php echo $_item->getProductUrl() ?>" 
+                                        title="<?php echo $this->htmlEscape($_item->getName()) ?>">
+                                       <?php echo $this->htmlEscape($_item->getName()) ?> 
+                                    </a>
+                                </p>        
+
+                                <div class="rating-box">
+                                    <div style="width: <?php echo $_item->getRatingSummary()->getData('rating_summary'); ?>%;" class="rating"></div>
+                                </div>    
+
+                                <div class="review-short">
+                                    <?php 
+                                        $_text = $_item->getDescription();
+                                        if (strlen($_text) > 130 ) {
+                                            $_text = substr($_item->getDescription(),0,130) . ' ...';
+                                        } 
+                                        echo $_text
+                                    ?>
+                                </div>                                
+                            </div>
+                            <div class="review-bottom">
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul> 
+        </section>
+</div>
+<?php endif ?>
+

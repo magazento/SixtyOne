@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <magazento>
+            <title>Magazento</title>
+            <sort_order>71</sort_order>
+            <children>
+                <headerslider translate="title" module="headerslider">
+                    <title>Revolution Slider</title>
+                    <sort_order>15</sort_order>
+                    <action>headerslider/admin_slide/index</action>
+                </headerslider>
+            </children>
+        </magazento>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <headerslider translate="title" module="headerslider">
+                                        <title>Header Slider</title>
+                                    </headerslider>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <magazento>
+                        <title>Magazento.com</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <headerslider translate="title" module="headerslider">
+                                <title>Header Slider</title>
+                            </headerslider>
+                        </children>
+                    </magazento>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

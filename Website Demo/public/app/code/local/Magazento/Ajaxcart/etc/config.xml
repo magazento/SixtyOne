@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magazento_Ajaxcart>
+            <version>0.0.1</version>
+            <depends>
+                <Mage_Customer />
+                <Mage_Checkout />
+            </depends>
+        </Magazento_Ajaxcart>
+    </modules>
+    <global>
+        <blocks>
+            <ajaxcart>
+                <class>Magazento_Ajaxcart_Block</class>
+            </ajaxcart>
+        </blocks>        
+        <helpers>
+            <ajaxcart>
+                <class>Magazento_Ajaxcart_Helper</class>
+            </ajaxcart>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <ajaxcart>
+                    <file>magazento_ajaxcart.xml</file>
+                </ajaxcart>
+            </updates>
+        </layout>
+    </frontend>
+
+    <frontend>
+        <routers>
+            <ajaxcart>
+                <use>standard</use>
+                <args>
+                    <module>Magazento_Ajaxcart</module>
+                    <frontName>ajaxcart</frontName>
+                </args>
+            </ajaxcart>
+        </routers>
+    </frontend>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ajaxcart>
+                                            <title>Magazento_Ajaxcart</title>
+                                        </ajaxcart>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    
+    <default>
+        <ajaxcart>
+            <general>
+                <ajaxcart_enabled>1</ajaxcart_enabled>
+            </general>
+        </ajaxcart>
+    </default>
+
+</config>
+

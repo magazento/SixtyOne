@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Magazento
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+*
+*
+* @category   Magazento
+* @package    sixtyone
+* @copyright  Copyright (c) 2013 Magazento (http://www.magazento.com)
+*/
+-->
+<layout version="0.1.0">
+
+    <default>
+        <!--<reference name="root">-->
+            <!--<action method="addBodyClass" ><classname>retina-ready</classname></action>-->
+        <!--</reference>-->
+
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/jquery-1.9.1.min.js</name><params/></action>   
+            <action method="addItem"><type>skin_js</type><name>js/jquery.hoverIntent.min.js</name><params/></action>   
+            <action method="addItem"><type>skin_js</type><name>js/jquery.iosslider.min.js</name><params/></action>   
+            <action method="addItem"><type>skin_js</type><name>js/jquery.elevateZoom-2.5.5.min.js</name><params/></action>   
+            <action method="addItem"><type>skin_js</type><name>js/jquery.fancybox.pack.js</name><params/></action>   
+            <action method="addCss"><stylesheet>css/jquery.fancybox.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/grid_responsive.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/common.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/header.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/toolbar.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/footer.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/category.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/sliders.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/product.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/pages.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>css/cart.css</stylesheet><params/></action>
+
+
+            <action method="addCss"><stylesheet>font-awesome/css/font-awesome.min.css</stylesheet><params/></action>
+
+            <action method="addCss"><stylesheet>css/meanmenu.css</stylesheet><params/></action>     
+              
+            <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 9</if></action>
+            
+            <action method="addItem"><type>skin_js</type><name>js/css3-mediaqueries.js</name><params/><if>lt IE 9</if></action>
+            <action method="addItem"><type>skin_js</type><name>js/selectivizr-min.js</name><params/><if>lt IE 9</if></action>
+            <action method="addItem"><type>skin_js</type><name>js/html5.js</name><params/><if>lt IE 9</if></action>
+            
+            <action method="addItem"><type>skin_js</type><name>js/jquery.ui.totop.min.js</name><params/></action>   
+            <action method="addItem"><type>skin_js</type><name>js/jquery.animate-shadow-min.js</name><params/></action>   
+            <action method="addCss"><stylesheet>revolution_slider/css/fullwidth.css</stylesheet><params/></action>
+            <action method="addCss"><stylesheet>revolution_slider/rs-plugin/css/settings.css</stylesheet><params/></action>
+            <action method="addItem"><type>skin_js</type><name>revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js</name><params/></action>
+
+
+            <action method="addItem"><type>skin_js</type><name>js/jquery.shuffleLetters.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.meanmenu.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/script.js</name><params/></action>   
+            
+            <action method="addItem" ifconfig="ajaxcart/general/ajaxcart_enabled"><type>skin_js</type><name>magazento_ajaxcart/jquery.ajaxcart.js</name></action>     
+            
+                   
+            <action method="addItem"><type>skin_js</type><name>js/html5.js</name><params/><if>lt IE 9</if></action>     
+            
+            <!-- MegaMenu-->
+            <action method="addCss"><stylesheet>css/megamenu.css</stylesheet></action>                                                                                                
+        </reference>
+    </default>
+
+</layout>

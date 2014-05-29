@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <magazento>
+            <title>Magazento</title>
+            <sort_order>71</sort_order>
+            <children>
+                <sixtyone translate="title" module="sixtyone">
+                    <title>SixtyOne Template</title>
+                    <children>
+                        <theme_settings translate="title" module="sixtyone">
+                            <title>Settings</title>
+                            <sort_order>0</sort_order>
+                            <action>adminhtml/system_config/edit/section/sixtyone</action>
+                        </theme_settings>
+                        <restore_theme translate="title" module="sixtyone">
+                            <title>Restore Defaults</title>
+                            <sort_order>1</sort_order>
+                            <action>sixtyone/restore/index</action>
+                        </restore_theme>
+                        <activate_theme translate="title" module="sixtyone">
+                            <title>Activate Theme</title>
+                            <sort_order>1</sort_order>
+                            <action>sixtyone/activation/index</action>
+                        </activate_theme>
+                    </children>
+
+                </sixtyone>
+            </children>
+        </magazento>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sixtyone>
+                                        <children>
+                                            <theme_settings translate="title" module="sixtyone">
+                                                <title>Settings</title>
+                                            </theme_settings>
+                                            <restore_theme translate="title" module="sixtyone">
+                                                <title>Restore Defaults</title>
+                                            </restore_theme>
+                                            <activate_theme translate="title" module="sixtyone">
+                                                <title>Activate Theme</title>
+                                            </activate_theme>
+                                        </children>
+                                    </sixtyone>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <magazento>
+                        <title>Magazento.com</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <sixtyone translate="title" module="sixtyone">
+                                <title>sixtyone Settings</title>
+                            </sixtyone>
+                        </children>
+                    </magazento>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

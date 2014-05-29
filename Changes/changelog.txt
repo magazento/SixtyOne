@@ -1,0 +1,47 @@
+Version 1.0.2: Revolution Slider
+ - Now you can control wide images from admin section
+ - Minor CSS fixes fo header
+ - Show/Hide search,settings and wishlist for header (control from admin settings)
+
+Version 1.0.1: Revolution Slider
+ - Flexslider has been changed to Revolutiuon Slider
+ - Added: now you can select what products show on homepage slider with few clicks
+
+
+Version 1.0: Initial Release
+
+- Theme effects based on jQuery library
+- Responsive and cross-crowser design
+- Mobile Ready
+- Integrated Google fonts
+- MobileMenu 
+- Flexslider & IOS Sliders integration - all sliders with Touchscreen support
+- HTML5/CSS3
+- Based on CSS grid system 
+
+Build-in Extensions
+
+- MegaMenu
+- AJAX Cart - no page relading on add to act action 
+- AJAX Layered Navigation - no page reloading on catalog browsing
+- Homepage Slider based on Flexslider library
+
+What Inside
+
+- "New Products" Widget - displayed as slider
+- "Sale Products" Widget - displayed as slider
+- "Reviews" Widget - displayed as slider 
+- "Crossell products" - displayed as slider
+- "Upsell products" - displayed as slider
+- "Recently viewed products - displayed as slider
+- "To Top" Button 
+- "Sale" & "New" labels for products with special price 
+- Fully customizable home page
+- Dropdown cart & wishlist in header 
+- Designed as a standalone package - customize and build your own themes based on Insale template
+- Full demo website included
+- Layered PSD files included
+- Optimized & well-structured code
+- Powerful theme settings 
+- Unlimited colors
+- Font Awesome

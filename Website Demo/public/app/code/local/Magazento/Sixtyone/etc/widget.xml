@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<widgets>
+    <newproducts_magazento type="sixtyone/newproducts">
+        <name>Sixtyone Template/New Products</name>
+        <description type="desc">Adds a list of new products with advanced parameters</description>
+        <parameters>
+            <template translate="label">
+                <label>Frontend Template</label>
+                <visible>0</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>magazento/product_widget_new.phtml</value>
+            </template>            
+            <static_block>
+                <label>Name of static block</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value></value>
+            </static_block>
+            <products_amount>w
+                <label>Amount of Products to Display</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>10</value>
+            </products_amount>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </newproducts_magazento>
+    <saleproducts_magazento type="sixtyone/saleproducts">
+        <name>Sixtyone Template/Sale Products</name>
+        <description type="desc">Adds a list of on sale products with advanced parameters</description>
+        <parameters>
+            <template translate="label">
+                <label>Frontend Template</label>
+                <visible>0</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>magazento/product_widget_sale.phtml</value>
+            </template>            
+            <static_block>
+                <label>Name of static block</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value></value>
+            </static_block>
+            <products_amount>
+                <label>Amount of Products to Display</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>10</value>
+            </products_amount>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </saleproducts_magazento>
+    <reviews_magazento type="sixtyone/reviews">
+        <name>Sixtyone Template/Reviews</name>
+        <description type="desc">Adds a list of reviews with advanced parameters</description>
+        <parameters>
+            <template translate="label">
+                <label>Frontend Template</label>
+                <visible>0</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>magazento/review_widget.phtml</value>
+            </template>    
+            <min_rating translate="label">
+                <label>Minimal Rating</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <source_model>sixtyone/ratings</source_model>
+            </min_rating>                               
+            <reviews_amount>
+                <label>Amount of Review to Display</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>10</value>
+            </reviews_amount>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </reviews_magazento>
+
+</widgets>

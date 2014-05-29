@@ -1,0 +1,16 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<label for="from-tmaln" class="label-tmaln"><?php echo Mage::helper('ajaxnavigation')->__('From') ?></label>
+<input type="text" id="from-price-range" class="input-tmaln" value="<?php echo $this->getMinPrice() ?>"/>
+<br class="both">
+<label for="to-tmaln" class="label-tmaln"><?php echo Mage::helper('ajaxnavigation')->__('To') ?></label>
+<input type="text" id="to-price-range" class="input-tmaln" value="<?php echo $this->getMaxPrice() ?>"/>
+
+<div class="slider-range"></div>

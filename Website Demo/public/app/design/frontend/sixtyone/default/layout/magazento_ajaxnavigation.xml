@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_category_layered translate="label">
+        <label>Catalog Category (Anchor)</label>
+        <remove name="catalog.leftnav"/>
+        <reference name="content">
+            <block type="ajaxnavigation/layer_view" name="ajaxnavigation.catalog.leftnav" before="category.products" template="magazento_ajaxnavigation/layer/view.phtml"/>
+        </reference>
+        
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>magazento_ajaxnavigation/ajaxnavigation.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>magazento_ajaxnavigation/base/jquery.ui.all.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.core.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.widget.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.mouse.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.slider.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ajaxnavigation.js</name>
+            </action>               
+        </reference>
+        
+        <reference name="before_body_end">
+            <block type="ajaxnavigation/layer_create" name="ajaxnavigation">
+                <action method="setTemplate">
+                    <template>magazento_ajaxnavigation/create.phtml</template>
+                </action>
+            </block>
+        </reference>
+        
+    </catalog_category_layered>
+    
+    <catalogsearch_result_index>
+        <remove name="catalogsearch.leftnav"/>
+        
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>magazento_ajaxnavigation/ajaxnavigation.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>magazento_ajaxnavigation/base/jquery.ui.all.css</name>
+            </action>
+            
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.core.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.widget.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.mouse.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ui.slider.js</name>
+            </action>               
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>magazento_ajaxnavigation/jquery.ajaxnavigation.js</name>
+            </action>               
+        </reference>
+        
+        <reference name="left">
+            <block type="ajaxnavigation/catalogSearch_layer" name="ajaxnavigation.catalogsearch.leftnav" before="-" template="magazento_ajaxnavigation/layer/view.phtml"/>
+        </reference>
+
+        <reference name="before_body_end">
+            <block type="ajaxnavigation/layer_create" name="ajaxnavigation">
+                <action method="setTemplate">
+                    <template>magazento_ajaxnavigation/create.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalogsearch_result_index>
+    
+    
+</layout>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action ifconfig="ajaxcart/general/ajaxcart_enabled" method="addCss"><stylesheet>magazento_ajaxcart/ajax_cart.css</stylesheet></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="ajax_container" after="-" template="magazento_ajaxcart/ajax_wrapper.phtml" />
+        </reference>
+    </default>
+    
+    <ajaxcart_index_cart>
+
+        <reference name="root">
+            <action method="setTemplate"><template>magazento_ajaxcart/ajax_page.phtml</template></action>
+        </reference>
+
+        <reference name="content">
+
+            <block type="core/template" name="ajaxcart" template="magazento_ajaxcart/ajaxcart.phtml">
+                <block type="checkout/cart_sidebar" name="ajaxcart_header" template="checkout/cart/cart-header.phtml">
+                    <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                </block>                
+            </block>
+        </reference> 
+        
+    </ajaxcart_index_cart>
+
+    <ajaxcart_index_cartdelete>
+
+        <reference name="root">
+            <action method="setTemplate"><template>magazento_ajaxcart/ajax_page.phtml</template></action>
+        </reference>
+
+        <reference name="content">
+
+            <block type="core/template" name="ajaxcart" template="magazento_ajaxcart/ajaxcart.phtml">
+                <block type="checkout/cart_sidebar" name="ajaxcart_header" template="checkout/cart/cart-header.phtml">
+                    <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                </block>
+            </block>
+        </reference>
+
+    </ajaxcart_index_cartdelete>
+
+
+</layout>

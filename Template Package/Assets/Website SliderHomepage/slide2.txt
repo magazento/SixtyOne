@@ -1,0 +1,13 @@
+<div class="caption very_big_white lfl stl"
+         data-x="18"
+         data-y="293"
+         data-speed="300"
+         data-start="500"
+         data-easing="easeOutExpo" data-end="8800" data-endspeed="300" data-endeasing="easeInSine" >DESIGNED WITH PASSION</div>
+
+    <div class="caption big_white lfl stl"
+         data-x="18"
+         data-y="333"
+         data-speed="300"
+         data-start="800"
+         data-easing="easeOutExpo" data-end="9100" data-endspeed="300" data-endeasing="easeInSine" >THIS THEME DESIGN FITS ANY RESOLUTION</div>

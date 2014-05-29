@@ -1,0 +1,182 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+<?php 
+$css_font1 = Mage::getStoreConfig('sixtyone/general/googlefonts');
+$css_font2 = Mage::getStoreConfig('sixtyone/general/googlefonts2');
+$css_color1 = Mage::getStoreConfig('sixtyone/general/color1');
+$css_color2 = Mage::getStoreConfig('sixtyone/general/color2');
+$css_color3 = Mage::getStoreConfig('sixtyone/general/color3');
+?>
+<?php if ($css_font1 != 'Default'): ?>
+    <link href='http://fonts.googleapis.com/css?family=<?php echo $css_font1;?>:100,200,300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body
+        { 
+            font-family: <?php echo Mage::getStoreConfig('sixtyone/general/googlefonts');?>,Arial, Helvetica, sans-serif;
+        }
+    </style>
+<?php endif;?>
+    
+<?php if ($css_font2 != 'Default'): ?>
+    <link href='http://fonts.googleapis.com/css?family=<?php echo $css_font2;?>:100,200,300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        .systemfont,
+        .section-heading h2,
+        .category-title,
+        .website-header .header-bottom .wishlist .view-wishlist,
+        .website-header .header-bottom .cart .view-cart span,
+        .block-layered-nav .no-filters,
+        .cart .discount-form .button,
+        .cart .shipping-form .button,
+        .cart-table .btn-continue,
+        .cart-table .btn-update,
+        .cart .btn-proceed-checkout span span,
+        .price-box,
+        footer .footer-bottom .footer-newsletter h2,
+        .block-layered-nav .block-options-heading,
+        .promo-banner .promo-text,
+        .view-more-link,
+        .box-up-sell header h2,
+        .products-list li.item .actions,
+        .products-list li.item .actions .btn-cart,
+        .no-products,
+        .promo-divider span
+        { 
+            font-family: <?php echo Mage::getStoreConfig('sixtyone/general/googlefonts2');?>;
+        }
+    </style>
+<?php endif;?>
+
+<style type="text/css">
+
+    /*
+    * FIRST COLOR
+    */
+    #toTop,
+    .products-grid .bigimage .namebox,
+    .footer-social-icon,
+    .category-products .actions button.btn-cart span.btn-cart-icon,
+    .account-login .page-title .page-icon, 
+    .account-create .page-title .page-icon,
+    .i-pager,
+    .link-wishlist-icon,
+    .link-compare-icon,
+    .email-friend-icon,
+    .category-products .link-wishlist,
+    .category-products .link-compare,
+    .cart-table .btn-update span span i,
+    .products-grid .product-item-detailed .link-wishlist-icon,
+    .products-grid .product-item-detailed .link-compare-icon,
+    .product-view .product-sidebar .product-info-shipping,
+    .product-view .product-sidebar .product-info-rewards,
+    .promo-banner .promo-icon-one,
+    .promo-banner .promo-icon-two,
+    .promo-banner .promo-icon-three,
+    .ajaxcart-checkout-link,
+    .ajaxcart-continue-link,
+    .big-shopping-cart,
+    .slider-items .btn-cart-icon,
+    .website-header .header-bottom .cart .dropdown-content .subtotal,
+    footer .footer-top .footer-newsletter .newsletter-subscribe .newsletter-icon,
+    button.btn-email,
+    .block .block-title,
+    .btn-remove
+    {
+        background-color: <?php echo $css_color1; ?>; 
+    }
+
+    .footer-social-icon,
+    .data-table thead,
+    .opc .active .step-title,
+    #tabs .product-tab.active,
+    .ajaxcart-result,
+    .ajaxcart-loading
+
+    {
+        border-color: <?php echo $css_color1; ?>; 
+    }
+    .cart-table .btn-continue span span i,
+    .divider-diamond,
+    .block-layered-nav .block-options-heading,
+    .footer-social-icon,
+    .form-list label.required em,
+    .toolbar .pager .pages .current,
+    .mini-products-list .product-sku span,
+    .mini-products-list .product-qty span,
+    .website-header .form-currency .current,
+    .website-header .form-language .current,
+    .nav-container #nav li a:hover,
+    .nav-container #nav li.over a,
+    .nav-container #nav li.active a,
+    .nav-container #nav ul li a:hover,
+    .nav-container #nav ul li.over > a,
+    .nav-container #nav ul li.over > a,    
+    .breadcrumbs .breadcrumbs-last,
+    .nav-container #menu a:hover,
+    #tabs ul li.product-tab.active a span,
+    .website-header .header-bottom .cart .view-cart i
+    {
+        color: <?php echo $css_color1; ?>; 
+    }
+
+    /*
+    * SECOND COLOR
+    */
+     button.button span,
+    .promo-sale,
+    .navigation-buttons button.scroll-left span,
+     .website-header .header-bottom .wishlist .wishlist-content .actions
+    {
+        background-color: <?php echo $css_color2; ?>; 
+    }
+    .view-more-link
+    {
+        color: <?php echo $css_color2; ?>; 
+    }
+    
+    /*
+    * THIRD COLOR
+    */
+    .promo-new,
+    .product-shop button.button,
+    .cart .btn-proceed-checkout span,
+    .cart .btn-proceed-checkout span:hover,
+    .buttons-set button.button span
+    {
+        background-color: <?php echo $css_color3; ?>; 
+    }
+    .special-price,
+    .price-box
+    {
+        color: <?php echo $css_color3; ?>; 
+    }
+    
+</style>

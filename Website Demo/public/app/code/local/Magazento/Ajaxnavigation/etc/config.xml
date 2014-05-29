@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+    <modules>
+        <Magazento_Ajaxnavigation>
+            <version>1.0.5</version>
+        </Magazento_Ajaxnavigation>
+    </modules>
+
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <layer>Magazento_Ajaxnavigation_Model_Layer</layer>
+                </rewrite>
+            </catalog>
+            <ajaxnavigation>
+                <class>Magazento_Ajaxnavigation_Model</class>
+                <resourceModel>ajaxnavigation_mysql4</resourceModel>
+            </ajaxnavigation>
+            <ajaxnavigation_mysql4>
+                <class>Magazento_Ajaxnavigation_Model_Mysql4</class>
+            </ajaxnavigation_mysql4>
+        </models>
+        <blocks>
+            <ajaxnavigation>
+                <class>Magazento_Ajaxnavigation_Block</class>
+            </ajaxnavigation>
+        </blocks>
+        <helpers>
+            <ajaxnavigation>
+                <class>Magazento_Ajaxnavigation_Helper</class>
+            </ajaxnavigation>
+        </helpers>
+        <resources>
+            <magazento_ajaxnavigation_setup>
+                <setup>
+                    <module>Magazento_Ajaxnavigation</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </magazento_ajaxnavigation_setup>
+            <ajaxnavigation_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajaxnavigation_write>
+            <ajaxnavigation_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajaxnavigation_read>
+        </resources>
+
+    </global>
+
+
+    <frontend>
+        <layout>
+            <updates>
+                <ajaxnavigation>
+                    <file>magazento_ajaxnavigation.xml</file>
+                </ajaxnavigation>
+            </updates>
+        </layout>
+        <routers>
+            <ajaxnavigation>
+                <use>standard</use>
+                <args>
+                    <module>Magazento_Ajaxnavigation</module>
+                    <frontName>ajaxnavigation</frontName>
+                </args>
+            </ajaxnavigation>
+            <catalog>
+                <args>
+                    <modules>
+                        <Magazento_Ajaxnavigation before="Mage_Catalog">Magazento_Ajaxnavigation</Magazento_Ajaxnavigation>
+                    </modules>
+                </args>
+            </catalog>
+            <catalogsearch>
+                <args>
+                    <modules>
+                        <Magazento_Ajaxnavigation before="Mage_CatalogSearch">Magazento_Ajaxnavigation</Magazento_Ajaxnavigation>
+                    </modules>
+                </args>
+            </catalogsearch>
+        </routers>
+        <translate>
+            <modules>
+                <Magazento_Ajaxnavigation>
+                    <files>
+                        <default>Magazento_Ajaxnavigation.csv</default>
+                    </files>
+                </Magazento_Ajaxnavigation>
+            </modules>
+        </translate>
+    </frontend>
+
+<!--    <default>
+        <ajaxnavigation>
+            <general>
+                <jquery>1</jquery>
+            </general>
+        </ajaxnavigation>
+    </default>-->
+
+</config>

@@ -1,0 +1,1 @@
+<p>{{widget type="sixtyone/newproducts" template="magazento/product_widget_new.phtml" static_block="new_products" products_amount="10"}}</p>

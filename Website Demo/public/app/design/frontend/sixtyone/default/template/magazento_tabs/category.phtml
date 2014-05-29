@@ -1,0 +1,20 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php 
+    $category_id = $this->getData('categoryid');
+    $_category = Mage::getModel("catalog/category")->load($category_id);    
+    $activeChildren = explode(",",$_category->getChildren());    
+?>
+<a class="menu-content-header" href="<?php echo $_category->getUrl();  ?>"><?php echo $_category->getName(); ?></a>
+<?php
+
+    echo $this->drawNestedMenus($activeChildren);
+//    exit();
+?>

@@ -1,0 +1,7 @@
+<h2>Customer Service</h2>
+<ul>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Return</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">Site Map</a></li>
+</ul>

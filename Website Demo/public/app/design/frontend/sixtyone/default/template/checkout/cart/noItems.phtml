@@ -1,0 +1,29 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+
+<div class="no-products-container">
+    <div class="big-shopping-cart">&nbsp;</div>
+    <p class="no-products"><?php echo $this->__('You have no items in your shopping cart.') ?> <br/>
+        <?php echo $this->__('Click <u><a href="%s">here</a></u> to continue shopping.', $this->getContinueShoppingUrl()) ?><br>
+                <button type="button"  class="button" onclick="window.history.back();"><span><span><?php echo $this->__('Return to Previous page') ?></span></span></button>
+
+    </p>
+    
+    <?php $_block = Mage::getModel('cms/block')->load('no_products_category_cart') ?>  
+    <br class="clear">
+    <h2 class="no-product-block-title"><?php echo $_block->getTitle(); ?></h2>
+    <div class="no-product-block-content">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('no_products_cart')->toHtml();?>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+        <?php echo $this->getChildHtml('checkout_cart_empty_widget'); ?>
+    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>        
+    </div>
+
+</div>

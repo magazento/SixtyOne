@@ -1,0 +1,28 @@
+<?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+?>
+
+
+<div class="category-heading">
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+    <div class="grid_6 ">
+        <div class="page-title category-title">
+            <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+                <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+            <?php endif; ?>
+            <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+        </div>
+        <div class="dot-divider"></div>
+        <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+            <div class="category-description std">
+                <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+</div>

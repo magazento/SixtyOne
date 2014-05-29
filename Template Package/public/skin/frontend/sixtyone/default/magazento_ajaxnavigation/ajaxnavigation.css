@@ -1,0 +1,82 @@
+.input-tmaln {
+    border: 1px solid #aaa;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 60%;
+}
+.label-tmaln {
+    width: 2em;
+    float: left;
+    text-align: right;
+    margin-right: 0.5em;
+    display: block;
+}
+.ajax-category-text {
+    margin: 0 0 2px;
+}
+.ajaxlayerednavigation-count-plus {
+    color: #999;
+}
+.ajaxlayerednavigation-count {
+}
+.ajaxlayerednavigation-count-active {
+    
+}
+
+.products-list-loader-layered {
+    background: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity:0.7;
+    z-index: 98;
+    filter:alpha(opacity=20);
+    background: #fff url("loading.gif") no-repeat 50% 50%;    
+    
+}
+.products-list-loader-main {
+    background: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity:0.7;
+    z-index: 98;
+    filter:alpha(opacity=20);    
+    background: #fff url("loading.gif") no-repeat 50% 50%;    
+    
+}
+#slider-range {
+    margin-top: 5px;
+}
+
+.block-layered-nav .ui-widget-header {
+    border: 1px solid #666;
+    background: #666;
+}
+.block-layered-nav  .ui-widget-content {
+    border: 1px solid #666;
+}
+
+/*.block-layered-nav .ui-slider-horizontal {
+    height: 1px;
+    border: 0;
+}*/
+.block-layered-nav .ui-slider {
+    height: 0px;
+    /*border: 0;*/
+    border: 1px solid #666;
+}
+
+.block-layered-nav .ui-state-default, 
+.block-layered-nav .ui-widget-content .ui-state-default, 
+.block-layered-nav .ui-widget-header .ui-state-default {
+font-weight: normal;
+color: #555555;
+background: #666;
+border-radius: 0;
+width: 5px;
+border: 0;
+padding: 0;
+margin: 0;
+cursor: pointer;
+}

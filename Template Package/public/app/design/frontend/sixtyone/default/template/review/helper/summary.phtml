@@ -1,0 +1,34 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php if ($this->getReviewsCount()): ?>
+    <div class="ratings">
+        <?php if ($this->getRatingSummary()):?>
+            <div class="rating-box">
+                <div class="rating" style="width:<?php echo $this->getRatingSummary() ?>%">
+					<span class="value-title" title="<?php echo number_format($this->getRatingSummary() / 20,1); ?>"></span>
+				</div>
+            </div>
+            <div class="rating-links">
+                <a rel="nofollow" href="<?php echo $this->getReviewsUrl() ?>"><span class="count"><?php echo $this->__('%d', $this->getReviewsCount()) ?></span><?php echo $this->__(' Review(s)') ?></a>
+                <span class="separator">|</span>
+                <a rel="nofollow" href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Add Your Review') ?></a>
+            </div>
+        <?php else:?>
+            <div class="rating-links">
+                <a rel="nofollow" href="<?php echo $this->getReviewsUrl() ?>"><span class="count"><?php echo $this->__('%d', $this->getReviewsCount()) ?></span><?php echo $this->__(' Review(s)') ?></a>
+                <span class="separator">|</span>
+                <a rel="nofollow" href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Add Your Review') ?></a>
+            </div>
+        <?php endif;?>
+
+    </div>
+<?php elseif ($this->getDisplayIfEmpty()): ?>
+    <p class="no-rating"><a rel="nofollow" href="<?php echo $this->getReviewsUrl() ?>#review-form"><?php echo $this->__('Be the first to review this product') ?></a></p>
+<?php endif; ?>

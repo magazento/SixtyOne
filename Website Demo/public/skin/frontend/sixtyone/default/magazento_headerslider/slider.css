@@ -1,0 +1,36 @@
+div.scroller { 
+    overflow: hidden;
+    border:1px solid #cccccc;
+}
+.firstsliderssamplecontainer a {color:#999}
+div.scroller div.section {
+    overflow:hidden;
+    float:left;
+    padding:0em;
+    padding-left: 1px;
+}
+div.scroller div.content {
+    width: 10000px;
+    padding:0px;
+}
+.firstsliderssample1 {
+    float: left;
+    padding-right: 3px;
+}
+.firstsliderssample2 {
+    float: left;
+    padding-right: 3px;
+}
+
+.firstsliderssample3 {
+    float: left;
+    padding-right: 3px;
+}
+.firstsliderssample4 {
+    float: left;
+    margin-top: 11px;
+}
+
+.firstsliderssamplecontainer{
+/*    margin: 10px;*/
+}

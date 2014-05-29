@@ -1,0 +1,119 @@
+<?php
+/**
+ *
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<div class="header-wideimage" style="background: transparent url(<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/wideimage/wide_image1'); ?>) 50% 50%  no-repeat; background-size: cover;">
+    <div class="header-wrapper">
+        <header class="website-header default">
+            <div class="website-header-scroll ">
+                <div class="header-container container_16">
+                    <div class="logo-container grid_3 omega">
+                        <a href="<?php echo $this->getUrl('') ?>"
+                           title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                            <img class="logotype logo-big"
+                                 src="<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/general/logo'); ?>"
+                                 alt="<?php echo $this->getLogoAlt() ?>"/>
+                            <img class="logotype logo-small"
+                                 src="<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/general/logo_small'); ?>"
+                                 alt="<?php echo $this->getLogoAlt() ?>"/>
+                        </a>&nbsp;
+                    </div>
+                    <div class="navigation grid_13 alpha">
+
+                        <div class="header-bottom">
+                            <nav class="navigation-menu">
+                                <?php echo $this->getChildHtml('topMenu') ?>
+                            </nav>
+                            <div class="nav-extra">
+
+
+                                <div class="account dropdown-container">
+                                    <a class="account-icon" href="<?php echo $this->getUrl('customer/account')?>"> <i class="icon-key"></i></a>
+                                    <div class="dropdown-content grid_4 alpha omega">
+                                        <div class="dropdown-content-data">
+                                            <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                                                <a href="<?php echo $this->getUrl('customer/account') ?>"> <?php echo $this->__('My Account') ?></a> |
+                                                <a href="<?php echo Mage::helper('customer')->getLogoutUrl() ?>"> <?php echo $this->__('Log Out') ?></a>
+                                            <?php else: ?>
+                                                <a href="<?php echo $this->getUrl('customer/account') ?>"> <?php echo $this->__('My Account') ?></a> |
+                                                <a class="button" href="<?php echo Mage::helper('customer')->getLoginUrl() ?>"> <?php echo $this->__('Log In') ?></a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cart dropdown-container">
+                                    <a class="cart-icon" href="<?php echo $this->getUrl('checkout/cart') ?>"> <i class="icon-shopping-cart"></i></a>
+                                    <span class="cart-counter">(<?php echo Mage::getModel('checkout/cart')->getItemsQty(); ?>) <?php echo $this->__('items') ?></span>
+
+                                    <div class="dropdown-content grid_4 alpha omega">
+                                        <?php echo $this->getChildHtml('cart_header') ?>
+                                    </div>
+                                </div>
+
+                                <?php if (Mage::getStoreConfig('sixtyone/header/show_whishlist')): ?>
+                                    <div class="wishlist dropdown-container">
+                                        <a class="wishlist-icon" href="<?php echo $this->helper('wishlist')->getListUrl(); ?>"><i class="icon-heart"></i> </a>
+                                        <?php
+                                        $wishlist = $this->getChildHtml('wishlist');
+                                        if (!$wishlist) {
+                                            $wishlist = '<p class="empty">' . $this->__('You have no items in your wishlist.') . "</p>";
+                                        }
+                                        ?>
+                                        <div class="dropdown-content grid_4 alpha omega">
+                                            <div class="wishlist-content">
+                                                <?php echo $wishlist; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif;?>
+
+                                <?php if (Mage::getStoreConfig('sixtyone/header/show_settings')): ?>
+                                    <div class="settings dropdown-container">
+                                        <a class="settings-icon" href="#"> <i class="icon-wrench"></i></a>
+                                        <div class="dropdown-content grid_4 alpha omega">
+                                            <div class="dropdown-content-data">
+                                                <?php echo $this->getChildHtml('currency') ?>
+                                                <?php echo $this->getChildHtml('store_language') ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif;?>
+
+                                <?php if (Mage::getStoreConfig('sixtyone/header/show_search')): ?>
+                                    <div class="search dropdown-container">
+                                        <a class="search-icon" href="#"> <i class="icon-search"></i></a>
+                                        <div class="dropdown-content grid_4 alpha omega">
+                                            <div class="dropdown-content-data">
+                                                <div class="topsearch">
+                                                    <?php echo $this->getChildHtml('topSearch') ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif;?>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </header>
+    </div>
+</div>
+<?php
+$page = Mage::app()->getFrontController()->getRequest()->getRouteName();
+if ($page == 'cms') {
+    $cmsSingletonIdentifier = Mage::getSingleton('cms/page')->getIdentifier();
+    $homeIdentifier = Mage::app()->getStore()->getConfig('web/default/cms_home_page');
+    if ($cmsSingletonIdentifier === $homeIdentifier) {
+        echo $this->getChildHtml('headerslider');
+    }
+}
+?>    

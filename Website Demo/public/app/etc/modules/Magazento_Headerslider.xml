@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magazento_Headerslider>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magazento_Headerslider>
+    </modules>
+</config>

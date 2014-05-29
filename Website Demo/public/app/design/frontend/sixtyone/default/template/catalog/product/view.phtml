@@ -1,0 +1,198 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+    $_helper = $this->helper('catalog/output');
+    $_product = $this->getProduct();
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view hproduct">
+    <div class="product-essential">
+        <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                <input type="hidden" name="related_product" id="related-products-field" value="" />
+            </div>
+
+            <div class="grid_1 alpha">&nbsp;
+            </div>
+            <div class="grid_8 alpha">
+                <div class="product-img-box">
+                            <div class="promo-container">
+                                <?php 
+                                    $_promo = $this->helper('sixtyone/data')->getPromoLabels($_product);
+                                    echo $_promo['sale'];                        
+                                    echo $_promo['new'];                        
+                                ?>   
+                            </div>     
+                    
+                    <?php echo $this->getChildHtml('media') ?>
+
+                    <div class="add-to-box">
+                        <?php if (!$this->hasOptions()):?>
+                            <?php echo $this->getChildHtml('addto') ?>
+                        <?php else:?>
+                            <br class="clear">
+                            <?php echo $this->getChildHtml('addto') ?>
+                        <?php endif; ?>
+                        <?php if ($this->canEmailToFriend()): ?>
+                            <a class="email-friend" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><span class="email-friend-icon"></span><?php echo $this->__('Email to a Friend') ?></a>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="grid_6 alpha">
+                <div class="product-shop hreview-aggregate">
+                    <div class="product-name">
+                        <h1 class="item name fn"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                    </div>
+
+                    <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+                    <?php echo $this->getChildHtml('alert_urls') ?>
+                    <?php echo $this->getTierPriceHtml() ?>
+                    <div class="product-shop-data">
+                        <?php echo $this->getChildHtml('product_type_data') ?>
+                    </div>
+
+                    <div class="wrapper-container"><div class="dot-divider2"></div></div>
+
+                    <?php if ($_product->getShortDescription()):?>
+                        <div class="short-description">
+                            <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                        </div>
+                    <?php endif;?>
+
+                    <?php echo $this->getChildHtml('other');?>
+
+                    <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    <?php endif;?>
+                    
+                    
+                    <?php if (!$this->hasOptions()):?>
+                    
+                            <?php if (!$this->hasOptions()):?>
+                                <?php if($_product->isSaleable()): ?>
+                                    <?php echo $this->getChildHtml('addtocart') ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+
+                    <?php else:?>
+                    
+                        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php endif;?>                      
+                    
+                    <?php endif;?>      
+                    
+                    
+                </div>        
+
+            </div>
+            <div class="grid_1 alpha">&nbsp;
+            </div>
+            <div class="clearer"></div>
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+                var productAddToCartForm = new VarienForm('product_addtocart_form');
+                productAddToCartForm.submit = function(){
+                        if (this.validator.validate()) {
+                                this.form.submit();
+                        }
+                }.bind(productAddToCartForm);
+        //]]>
+        </script>
+    </div>
+
+    <?php $product_additional = $this->getChildHtml('additional') ?>
+    <?php $product_tabs_info1 = $this->getLayout()->createBlock('cms/block')->setBlockId('product_tabs_info1')->toHtml(); ?>
+    <?php $block_product_tabs_info1 = Mage::getModel('cms/block')->load('product_tabs_info1') ?>
+    <div class="section-detailed">
+        <div class="grid_12 alpha">
+            <div id="tabs">
+                <ul class="tabs-heading">
+                    <li class="product-tab active first"><a href="#tab-1"><span><i class="icon-circle"></i></span><?php echo $this->__('Full Description') ?></a></li>
+
+                    <?php if ($product_additional): ?>
+                        <li class="product-tab"><a href="#tab-additional"><span><i class="icon-circle"></i></span><?php echo $this->__('Additional Information') ?></a></li>
+                    <?php endif;?>
+
+                    <li class="product-tab"><a href="#tab-4"><span><i class="icon-circle"></i></span><?php echo $this->__('Product Tags') ?></a></li>
+                    <li class="product-tab"><a href="#tab-review"><span><i class="icon-circle"></i></span><?php echo $this->__('Product Reviews') ?></a></li>
+                    <?php if ($block_product_tabs_info1): ?>
+                        <li class="product-tab"><a href="#block_product_tabs_info1"><span><i class="icon-circle"></i></span><?php echo $block_product_tabs_info1->getTitle(); ?></a></li>
+                    <?php endif;?>
+                </ul>
+                <div id="tab-1" class="tab-item" style="display: block;">
+                    <div class="tab-content">
+                        <?php echo $this->getChildHtml('description') ?>
+                    </div>
+                </div>
+                <?php if ($product_additional): ?>
+                    <div id="tab-additional" class="tab-item" style="display: none;">
+                        <div class="tab-content">
+                            <?php echo $product_additional; ?>
+                        </div>
+                    </div>
+                <?php endif;?>
+                <div id="tab-4" class="tab-item" style="display: none;">
+                    <div class="tab-content">
+                        <?php echo $this->getChildHtml('product_additional_data') ?>
+                    </div>
+                </div>
+                <div id="tab-review" class="tab-item" style="display: none;">
+                    <div class="tab-content">
+                        <?php echo $this->getChildHtml('product_review') ?>
+                    </div>
+                </div>
+
+                <?php if ($block_product_tabs_info1): ?>
+                    <div id="block_product_tabs_info1" class="tab-item" style="display: none;">
+                        <div class="tab-content">
+                            <?php echo $product_tabs_info1; ?>
+                        </div>
+                    </div>
+                <?php endif;?>
+                <?php if ($block_product_tabs_info2): ?>
+                    <div id="block_product_tabs_info2" class="tab-item" style="display: none;">
+                        <div class="tab-content">
+                            <?php echo $product_tabs_info2; ?>
+                        </div>
+                    </div>
+                <?php endif;?>
+            </div>
+            <div class="product-tabs-bottom">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_tabs_bottom')->toHtml();?>
+            </div>
+        </div>
+        <div class="tabs-banner-container grid_4 alpha">
+            <div class="tabs-banner-sidebar">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_tabs_sidebar')->toHtml();?>
+            </div>
+        </div>
+    </div>
+
+    
+    <br class="clear">
+    <?php echo $this->getChildHtml('upsell_products') ?>
+    
+</div>

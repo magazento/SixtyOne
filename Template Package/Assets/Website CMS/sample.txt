@@ -1,0 +1,14 @@
+<h2 class="systemfont" style="text-align: center;">Text Sample</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis consectetur metus, a mollis urna egestas vel. Integer sit amet tincidunt quam, a scelerisque libero. Vestibulum a mi nunc. Proin sollicitudin, risus sit amet scelerisque faucibus, nisi neque blandit nibh, et dictum ante lectus non libero. Donec gravida tellus in libero condimentum, eget condimentum mi aliquet. Sed in lacus ut turpis porta semper sollicitudin vitae sapien. Donec sit amet egestas metus. Morbi lacinia augue eget congue aliquam. In non condimentum dui. Mauris eget pulvinar est, a tincidunt nisi. Maecenas volutpat magna ut sem rhoncus, vitae vulputate ligula luctus. Donec at nibh velit. In id mattis massa, quis sollicitudin enim.</p>
+<h2 class="systemfont" style="text-align: center;">Reviews Widget</h2>
+<p style="text-align: center;">&nbsp;</p>
+<p>{{widget type="sixtyone/reviews" template="magazento/review_widget.phtml" min_rating="5" reviews_amount="10"}}</p>
+<p>&nbsp;</p>
+<h2 class="systemfont" style="text-align: center;">On Sale Widget</h2>
+<p style="text-align: center;">&nbsp;</p>
+<p>{{widget type="sixtyone/saleproducts" template="magazento/product_widget_sale.phtml" static_block="sale_products" products_amount="10"}}</p>
+<h2 class="systemfont" style="text-align: center;">New Products Widget</h2>
+<p style="text-align: center;">&nbsp;</p>
+<p>{{widget type="sixtyone/newproducts" template="magazento/product_widget_new.phtml" static_block="new_products" products_amount="10"}}</p>
+<h2 class="systemfont" style="text-align: center;">Text Sample</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis consectetur metus, a mollis urna egestas vel. Integer sit amet tincidunt quam, a scelerisque libero. Vestibulum a mi nunc. Proin sollicitudin, risus sit amet scelerisque faucibus, nisi neque blandit nibh, et dictum ante lectus non libero. Donec gravida tellus in libero condimentum, eget condimentum mi aliquet. Sed in lacus ut turpis porta semper sollicitudin vitae sapien. Donec sit amet egestas metus. Morbi lacinia augue eget congue aliquam. In non condimentum dui. Mauris eget pulvinar est, a tincidunt nisi. Maecenas volutpat magna ut sem rhoncus, vitae vulputate ligula luctus. Donec at nibh velit. In id mattis massa, quis sollicitudin enim.</p>

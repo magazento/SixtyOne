@@ -1,0 +1,34 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<div class="footer-newsletter">
+    <div class="newsletter-subscribe">
+        <h2><span class="newsletter-icon"></span><?php echo $this->__('Sign-up to Newsletter') ?></h2>
+        <span class="info-text"><?php echo $this->__('Subscribe to notifications and discounts') ?></span>
+        
+        <div class="newsletter-form">
+            <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+                <div class="input-email">
+                    <input type="text" name="email" 
+                           id="newsletter" value="<?php echo $this->__('Enter your email ...') ?>"
+                           class="input-text required-entry validate-email"
+                           onblur="if (this.value=='') this.value = '<?php echo $this->__('Enter your email ...') ?>'" onfocus="if (this.value=='<?php echo $this->__('Enter your email ...') ?>') this.value = ''"
+                           />
+                </div>
+                <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button btn-email"><i class="icon-play"></i></button>
+            </form>    
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    //]]>
+    </script>
+</div>

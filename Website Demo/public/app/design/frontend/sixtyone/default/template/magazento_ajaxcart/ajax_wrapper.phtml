@@ -1,0 +1,29 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<div class="ajaxcart-overlay" id="ajaxcart-overlay" style="display: none;">&nbsp;</div>
+
+<div style="display: none; top: 40%;" class="ajaxcart-loading" id="ajaxcart-loading">
+</div>
+<div class="ajaxcart-loading-data" id="ajaxcart-loading-data" style="display: none;">
+    <div class="ajaxcart-ajax-child">
+        <p class="loading-text"><img alt="<?php echo $this->__('Loading...');?>" src="<?php echo $this->getSkinUrl();?>/magazento_ajaxcart/loading.gif"/><?php echo $this->__('Loading...');?></p>
+    </div>
+</div>
+
+<div style="display: none; position: fixed; top: 40%;" class="ajaxcart-result" id="ajaxcart-result">
+</div>
+
+<div id="ajaxcart-hidden-box" style="display:none;"></div>
+
+
+
+<script type="text/javascript">
+    var ajaxcart_url = "<?php echo $this->getUrl('ajaxcart/index/productcheck', array("product" => "product_id"));?>";
+</script>

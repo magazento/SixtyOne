@@ -1,0 +1,34 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     sixtyone_default
+ * @copyright   Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ */
+?>
+<?php
+/**
+ * @see Mage_Reports_Block_Product_Viewed
+ */
+?>
+<?php if ($_products = $this->getRecentlyViewedProducts()): ?>
+<div class="widget widget-viewed">
+    <section class="block-list">
+        <header>
+            <h2><?php echo $this->__('Recently Viewed') ?></h2>
+        </header>
+        <div class="block-content">
+            <?php $suffix = $this->getNameInLayout(); ?>
+            <ol id="widget-viewed-<?php echo $suffix; ?>">
+            <?php foreach ($_products as $_product): ?>
+                <li class="item">
+                   <p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?></a></p>
+                </li>
+            <?php endforeach; ?>
+            </ol>
+            <script type="text/javascript">decorateList('widget-viewed-<?php echo $suffix; ?>', 'none-recursive')</script>
+        </div>
+    </section>
+</div>
+<?php endif; ?>

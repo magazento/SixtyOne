@@ -1,0 +1,265 @@
+<config>
+    <tabs>
+        <magazento translate="label">
+            <label>Magazento.com</label>
+            <sort_order>250</sort_order>
+        </magazento>
+    </tabs>
+    <sections>
+        <sixtyone  module="sixtyone">
+            <tab>magazento</tab>
+            <label>SixtyOne</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general  module="sixtyone">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <logo >
+                            <label>Logo</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magazento_sixtyone</upload_dir>
+                            <base_url type="media" scope_info="1">magazento_sixtyone</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo>
+                        <logo_small >
+                            <label>Logo Small</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magazento_sixtyone</upload_dir>
+                            <base_url type="media" scope_info="1">magazento_sixtyone</base_url>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_small>
+
+                        <googlefonts translate="label">
+                            <label>Google Font Main</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sixtyone/googlefonts</source_model>
+                            <frontend_model>sixtyone/adminhtml_system_config_form_field_font</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment> <![CDATA[ Read more on <a target="_blank" href="http://www.google.com/fonts/">http://www.google.com/fonts/</a> ]]>
+                           </comment>
+                        </googlefonts>
+
+
+                        <googlefonts2 translate="label">
+                            <label>Google Font Second</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sixtyone/googlefonts</source_model>
+                            <frontend_model>sixtyone/adminhtml_system_config_form_field_font</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment> <![CDATA[ Read more on <a target="_blank" href="http://www.google.com/fonts/">http://www.google.com/fonts/</a> ]]>
+                           </comment>
+                        </googlefonts2>
+
+                        <color1  module="sixtyone">
+                            <label>Main Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sixtyone/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color1>
+                        <color2  module="sixtyone">
+                            <label>Second Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sixtyone/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color2>
+                        <color3  module="sixtyone">
+                            <label>Third Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sixtyone/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color3>
+
+                        <megamenu  module="sixtyone">
+                            <label>Megamenu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </megamenu>
+
+                        <googlemap  module="sixtyone">
+                            <label>Google Map Position</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </googlemap>
+
+                        <twitter_link  module="sixtyone">
+                            <label>Twitter Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twitter_link>
+                        <pinterest_link  module="sixtyone">
+                            <label>Pinterest Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pinterest_link>
+                        <linkedin_link  module="sixtyone">
+                            <label>LinkedIn Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </linkedin_link>
+                        <google_link  module="sixtyone">
+                            <label>Google Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>360</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </google_link>
+                        <youtube_link  module="sixtyone">
+                            <label>YouTube Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>370</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </youtube_link>
+
+                    </fields>
+
+                </general>
+                <header translate="header" module="sixtyone">
+                    <label>Header</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <show_whishlist  module="sixtyone">
+                            <label>Show Wishlist</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_whishlist>
+                        <show_settings  module="sixtyone">
+                            <label>Show Settings</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_settings>
+                        <show_search  module="sixtyone">
+                            <label>Show Search</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_search>
+                    </fields>
+                </header>
+                <wideimage translate="header" module="sixtyone">
+                    <label>Background Images</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <wide_image1 >
+                            <label>Wide Image Main</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magazento_sixtyone</upload_dir>
+                            <base_url type="media" scope_info="1">magazento_sixtyone</base_url>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wide_image1>
+                        <wide_image2>
+                            <label>Wide Image Divider</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magazento_sixtyone</upload_dir>
+                            <base_url type="media" scope_info="1">magazento_sixtyone</base_url>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wide_image2>
+                        <wide_image3>
+                            <label>Wide Image Footer</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magazento_sixtyone</upload_dir>
+                            <base_url type="media" scope_info="1">magazento_sixtyone</base_url>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wide_image3>
+                    </fields>
+                </wideimage>
+                <info translate="label">
+                    <label>About Template</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>sixtyone/info</frontend_model>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+            </groups>
+        </sixtyone>
+    </sections>
+</config>

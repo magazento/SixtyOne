@@ -1,0 +1,35 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php $_items = $this->getItems(); ?>
+<?php if (count($_items) > 0) : ?>
+    <ol>
+    <?php foreach ($_items as $_item) : ?>
+        <li>
+            <?php if (!$_item->getActive() && $_item->getCount() > 0) : ?>
+                <input type="checkbox" class="ajax-option-checkbox" name="option<?php echo $_item->getValue() ?>" value="<?php if (!$_item->getActive()) { echo $_item->getUrl(); } else { echo $_item->getRemoveUrl(); } ?>" <?php if ($_item->getActive()) : ?> checked="checked"<?php endif; ?> >
+                <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>" class="ajax-option-link"><?php echo $_item->getLabel() ?></a>
+            <?php elseif ($_item->getActive()) : ?>
+                <input type="checkbox" class="ajax-option-checkbox" name="option<?php echo $_item->getValue() ?>" value="<?php if (!$_item->getActive()) { echo $_item->getUrl(); } else { echo $_item->getRemoveUrl(); } ?>" <?php if ($_item->getActive()) : ?> checked="checked"<?php endif; ?> >
+                <?php echo $_item->getLabel() ?>
+            <?php endif; ?>
+                
+                <?php if (!$_item->getActive() && $_item->getCount() > 0) : ?>
+                <?php if ($this->getActiveFilter()) {
+                    echo '<span class="ajaxlayerednavigation-count-plus">(+' . $_item->getCount() . ')</span>'; 
+                } else {
+                    echo '<span class="ajaxlayerednavigation-count">(' . $_item->getCount() . ')</span>'; 
+                } 
+                ?>
+            <?php endif; ?>
+                
+        </li>
+    <?php endforeach ?>
+    </ol>
+<?php endif ?>

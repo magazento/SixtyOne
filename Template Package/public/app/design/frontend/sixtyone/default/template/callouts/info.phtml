@@ -1,0 +1,21 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php $block_identifier = $this->getStaticBlock(); ?>
+<?php $block = Mage::getModel('cms/block')->load($block_identifier); ?>
+<?php if ($block->getTitle() && $block->getData('is_active')): ?>
+<section class="block block-info">
+    <header class="block-title">
+        <span><?php echo $block->getTitle(); ?></span>
+    </header>    
+    <div class="block-content">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($block_identifier)->toHtml(); ?>
+    </div>
+</section>
+<?php endif; ?>

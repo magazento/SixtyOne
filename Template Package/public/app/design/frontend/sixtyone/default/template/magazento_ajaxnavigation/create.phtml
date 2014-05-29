@@ -1,0 +1,40 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php
+
+    if ($this->isCatalogSearchPage()) {
+        $categoryUrl = Mage::getUrl('catalogsearch/result/index');
+    } else {
+        $categoryUrl = Mage::registry('current_category')->getUrl();
+    }
+?>
+
+
+<script type="text/javascript">
+    var categoryUrl = '<?php echo $categoryUrl ?>'; 
+//    alert(categoryUrl);
+    var categoryMinPrice = <?php echo $this->getMinPrice() ?>; 
+    var categoryMaxPrice = <?php echo $this->getMaxPrice() ?>;
+    
+    jQuery.setObservers();
+    jQuery.BindSlider();
+    
+//    var url = categoryUrl;
+    var hash = document.location.hash;
+    if (hash != '') {
+        var urlQuery = hash.replace('#', '?');
+        urlQuery = categoryUrl + urlQuery;
+//        alert(urlQuery);
+        jQuery.ProcessEvent(urlQuery);
+    }    
+    
+
+    
+</script>

@@ -1,0 +1,119 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     sixtyone_default
+ * @copyright   Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ */
+/* @var $this Mage_Reports_Block_Product_Viewed */
+?>
+
+<?php
+    $_helper = $this->helper('catalog/output');
+?>
+<?php $_currency =  Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?>
+<?php if ($_products = $this->getRecentlyViewedProducts()): ?>
+    <div class="slider-items">
+
+        <div class="wideimage" style="background: transparent url(<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/wideimage/wide_image2'); ?>) 50% 50% no-repeat; background-size: cover;">
+            <div class="container_16">
+                <div class="grid_3">
+                    <div class="icon"><i class="icon-laptop"></i></div>
+                </div>
+                <div class="grid_13">
+                    <div class="info-text"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('recently_viewed_divider')->toHtml(); ?> </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_16">
+            <div class="grid_16">
+                <div class="section-heading">
+                    <div class="grid_5 alpha">
+                        &nbsp;
+                    </div>
+                    <div class="grid_6">
+                        <h2><?php echo $this->__('Recently Viewed') ?></h2>
+                        <div class="dot-divider"></div>
+                        <div><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('recently_viewed_heading')->toHtml(); ?> </div>
+                    </div>
+                    <div class="grid_5 alpha">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid_16 recently-mobile">
+                <section class="block-list block-viewed">
+
+                    <div class="grid_2 omega">
+                        <div class="navigation-buttons">
+                            <?php if ($_products->getSize() >3): ?>
+                                <span class="button scroll-left"></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="grid_12">
+                        <div class="block-content iosSlider-recently">
+                            <ul class="slider-items" id="recently-viewed-items">
+                            <?php foreach ($_products as $_product): ?>
+                                <li class="item">
+                                    <div class="product-item">
+                                        <?php
+                                            $_gallery = Mage::getModel('catalog/product')->load($_product->getId())->getMediaGalleryImages();
+                                            $_image = null;
+                                            if (count($_gallery)) {
+                                                foreach ($_gallery as $item)
+                                                {
+                                                    $_image = $item->getFile();
+                                                }
+                                            }
+                                        ?>
+                                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
+                                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(250,null); ?>"
+                                                 alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+
+                                            <img class="hover-image"
+                                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image',$_image)->keepFrame(false)->resize(250,null); ?>"
+                                                 alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+
+                                        </a>
+
+                                        <h2 class="item fn product-name">
+                                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+                                        </h2>
+                                        <p class="short-description"><?php echo substr($_product->getShortDescription(), 0,150);?></p>
+                                        <?php if($_product->getRatingSummary()): ?>
+                                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                                        <?php endif; ?>
+                                        <div class="price-box pricerange">
+                                            <span class="price"><?php echo $_currency; ?><?php echo number_format($_product->getFinalPrice(),2); ?></span>
+                                        </div>
+                                        <div class="center">
+                                            <a href="#" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>');" class="btn-cart btn-cart-icon">#</a>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+
+                            <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid_2 alpha">
+                        <?php if ($_products->getSize() >3): ?>
+                            <div class="navigation-buttons left">
+                                <span class="button scroll-right"></span>
+                            </div>
+                        <?php else: ?>
+                            &nbsp;
+                        <?php endif; ?>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

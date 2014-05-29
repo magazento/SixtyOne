@@ -1,0 +1,23 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<div id="back-ajax-add" class="back-ajax-add">
+    <a id="ajaxcart-continue-link" class="ajaxcart-continue-link" href="javascript:void(0);" onclick="jQuery().overlayHide()"><span><?php echo $this->__('Continue shopping');?></span></a>
+    <a id="ajaxcart-checkout-link" class="ajaxcart-checkout-link" href="<?php echo $this->getUrl('checkout/cart'); ?>"><span><?php echo $this->__('View cart & checkout');?></span></a>
+</div>
+
+<div class="cart_side_ajax">
+    <?php echo $this->getChildHtml('ajaxcart_header') ?>
+</div>
+<div class="cart_total_ajax">
+    <?php echo $this->__('In Cart') ?> (<?php echo Mage::getModel('checkout/cart')->getItemsQty(); ?>)
+</div>
+<div class="ajaxcart-message">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+</div>

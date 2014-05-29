@@ -1,0 +1,244 @@
+.nav-container #menu {
+    width:950px;
+    list-style: none;
+    margin: 0 auto;
+    display: block;
+    min-height: 260px;
+    background: #fff;
+    color: #666;
+}
+
+
+.nav-container #main .subsection_tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    background: #fff;
+}
+
+.nav-container #main .subsection_tabs li {
+    text-align:center;
+    position: relative;
+}
+
+.nav-container #main .subsection_tabs li.right {
+	float: left;
+	text-align: center;
+	border-left: solid 2px white;
+	border-right: 0;
+}
+.nav-container #main .subsection_tabs li.last {
+	border-right: 0;
+}
+
+.nav-container #main .subsection_tabs li.tab a {
+    display: block;
+    height: 18px;
+    padding: 17px 15px 15px 15px;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+#main ul.subsection_tabs .tab a.active{
+    color: #fff;
+}
+.nav-container #main ul.subsection_tabs li a.active {
+    background: #4b4b4b;
+}
+
+.nav-container #main a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #4b4b4b;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.nav-container #menu li.drop,.nav-container #menu li.home-link {
+	border: 1px solid transparent;
+}
+
+
+
+.nav-container #menu li {
+    float:left;
+    display:block;
+    text-align:center;
+    position:relative;
+    border:none;
+    background: transparent;
+    clear:both;
+    
+}
+.nav-container #menu li .category-item-icon {
+}
+
+.nav-container #menu ul ul a {
+    line-height: 11px;
+}
+.nav-container #menu ul {
+	margin-left:0px;
+}
+
+
+
+.nav-container .nav-container #main{
+    position: relative;
+    z-index: 8;
+    margin-top: 9px;
+}
+.nav-container .nav-container #menu .allcategories:hover {
+}
+
+.nav-container #menu li a:hover {
+
+}
+
+.nav-container #menu li a {
+    font-weight: normal;
+    color: #fff;
+    display:block;
+    outline:0;
+    text-decoration:none;
+}
+
+.nav-container .nav-container #menu .first:hover .align_left  {
+    left:0px;
+    top:auto;
+}
+.nav-container #menu li:hover .align_left  {
+    left:-1px;
+    top:auto;
+}
+.nav-container #menu li:hover .align_right {
+    left:auto;
+    right:2px;
+    top:auto;
+}
+
+.nav-container .nav-container #menu .allcategories:hover .align_right {
+    left:auto;
+    right:0px;
+    top:auto;
+}
+
+.nav-container #menu .menu_right {
+    float:right;
+    margin-right:0px;
+}
+.nav-container #menu li.allcategories .align_right {
+	margin-right: -1px;
+}
+
+
+
+.nav-container #menu p, .nav-container #menu h2, .nav-container #menu h3, .nav-container #menu ul li {
+    line-height: 1.4;
+    font-size: 12px;
+    text-align: left;
+    color: #666;
+}
+.nav-container #menu h3 {
+    margin:7px 0 8px 0;
+    padding-bottom:1px;
+    border-bottom:1px solid #888888;
+}
+.nav-container #menu p {
+    line-height:18px;
+    margin:0 0 10px 0;
+}
+
+.nav-container #menu li:hover div a {
+    font-size:12px;
+    color: #000000;
+    text-decoration: none;
+}
+.nav-container #menu li:hover div a:hover {
+    color: #A72D2C;
+}
+
+.nav-container #menu li ul {
+    list-style:none;
+    padding:0;
+    margin:0 0 2px 0;
+}
+.nav-container #menu li ul li a {
+    font-weight: normal;
+}
+.nav-container #menu ul li ul {
+}
+
+
+.nav-container #menu li ul li {
+    background:0;
+    font-size:12px;
+    line-height: 16px;
+    position:relative;
+    padding:0;
+    margin:0;
+    float:none;
+    text-align:left;
+    /*width:130px;*/
+    display: list-item;
+    width: 100%;
+}
+
+.menuitem{
+    z-index: 99;
+    position: absolute;
+    left: -140px;
+    top: 50px;
+}
+
+.nav-container #main .tl {
+	top: 0;
+	left: 0;
+}
+
+.nav-container #main .tr {
+	top: 0;
+	right: 0;
+	background-position: 100% 0%;
+}
+.nav-container #main .corner {
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	z-index: 50;
+}
+
+.nav-container #menu table {
+    border-collapse: collapse;
+}
+.nav-container #menu table td {
+    padding: 0px 35px 0 35px;
+    border-right: 1px solid #888;
+    width: 10%;
+}
+.nav-container #menu table td:last-child, table th:last-child {
+    border-right: 0;
+}
+
+.nav-container #menu table td img, table th img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-container #menu .menu-content-header {
+    font-size: 12px;
+    margin: 0px 0 3px 0;
+    width: 95%;
+    clear: both;
+    display: block;
+    float: left;
+    font-weight: normal;
+}

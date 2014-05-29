@@ -1,0 +1,29 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     sixtyone_default
+ * @copyright   Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ */
+?>
+<?php if ($_products = $this->getRecentlyComparedProducts()): ?>
+<div class="widget widget-compared">
+    <section class="block-list">
+        <header>
+            <h2><?php echo $this->__('Recently Compared') ?></h2>
+        </header>
+        <div class="block-content">
+            <?php $suffix = $this->getNameInLayout(); ?>
+            <ol id="widget-compared-<?php echo $suffix; ?>">
+            <?php $i=0; foreach ($_products as $_product): ?>
+                <li class="item">
+                    <p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?></a></p>
+                </li>
+            <?php endforeach; ?>
+            </ol>
+            <script type="text/javascript">decorateList('widget-compared-<?php echo $suffix; ?>', 'none-recursive')</script>
+        </div>
+    </section>
+</div>
+<?php endif; ?>

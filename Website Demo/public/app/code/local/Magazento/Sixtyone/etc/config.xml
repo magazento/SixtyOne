@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Magazento_Sixtyone>
+            <version>1.0.2</version>
+        </Magazento_Sixtyone>
+    </modules>
+    
+    <global>
+        <blocks>
+            <sixtyone>
+                <class>Magazento_Sixtyone_Block</class>
+            </sixtyone>
+            <reports>
+                <rewrite>
+                    <product_viewed>Magazento_Sixtyone_Block_Product_Viewed</product_viewed>
+                </rewrite>
+            </reports>
+            <checkout>
+                <rewrite>
+                    <cart_crosssell>Magazento_Sixtyone_Block_Cart_Crosssell</cart_crosssell>
+                    <cart_sidebar>Magazento_Sixtyone_Block_Cart_Sidebar</cart_sidebar>
+                </rewrite>
+            </checkout>            
+        </blocks>
+        <helpers>
+            <sixtyone>
+                <class>Magazento_Sixtyone_Helper</class>
+            </sixtyone>
+        </helpers>
+        <models>
+            <sixtyone>
+                <class>Magazento_Sixtyone_Model</class>
+            </sixtyone>
+        </models>        
+    </global>
+    <admin>
+        <routers>
+            <magazento_sixtyone>
+                <use>admin</use>
+                <args>
+                    <module>Magazento_Sixtyone</module>
+                    <frontName>sixtyone</frontName>
+                </args>
+            </magazento_sixtyone>
+        </routers>
+    </admin>
+    
+    <default>
+        <sixtyone>
+            <general>
+                <ajaxcart_enabled>1</ajaxcart_enabled>
+                <logo>logo.png</logo>                        
+                <logo_small>logo-small.png</logo_small>                        
+                <logo_mini>logo-mini.png</logo_mini>                
+                <googlefonts>Default</googlefonts>                
+                <googlefonts2>Default</googlefonts2>                
+                <color1>#ffa21c</color1>
+                <color2>#fe6b6b</color2>                
+                <color3>#f0525d</color3>                
+                <megamenu>0</megamenu>                
+                <googlemap>40.405131, -3.691406</googlemap>
+                <twitter_link>#</twitter_link>
+                <pinterest_link>#</pinterest_link>
+                <linkedin_link>#</linkedin_link>
+                <google_link>#</google_link>
+                <youtube_link>#</youtube_link>
+            </general>
+            <header>
+                <show_whishlist>1</show_whishlist>
+                <show_settings>1</show_settings>
+                <show_search>1</show_search>
+            </header>
+            <wideimage>
+                <wide_image1>wideimage3.jpg</wide_image1>
+                <wide_image2>wideimage2.jpg</wide_image2>
+                <wide_image3>wideimage4.jpg</wide_image3>
+            </wideimage>
+        </sixtyone>
+    </default>      
+    
+</config>

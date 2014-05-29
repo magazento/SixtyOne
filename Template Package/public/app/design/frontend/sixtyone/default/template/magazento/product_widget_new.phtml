@@ -1,0 +1,101 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php $collection = $this->getProductsCollection(); ?>
+<?php if($collection->count()): ?>
+<div class="section-heading">
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+    <div class="grid_6">
+        <h2><?php echo $this->__('New Products') ?></h2>
+        <div class="dot-divider"></div>
+        <div><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($this->getStaticBlock())->toHtml(); ?></div>
+    </div>
+    <div class="grid_5 alpha">
+        &nbsp;
+    </div>
+</div>
+<section class="widget-new-products">
+    
+    <div class="grid_2 omega">
+            <div class="navigation-buttons">
+                <?php if ($collection->getSize() >3): ?>
+                    <span class="button scroll-left"></span>
+                <?php endif; ?>
+            </div>
+
+    </div>
+    <div class="grid_12 omega">
+        <div class="block-content iosSlider-newproducts">
+            <ul class="slider-items">
+                <?php foreach ($collection as $_product): ?>
+                    <li class="item">
+                        <div class="product-item">
+                            
+                            <?php 
+                                $_gallery = Mage::getModel('catalog/product')->load($_product->getId())->getMediaGalleryImages();
+                                $_image = null;
+                                if (count($_gallery)) {
+                                    foreach ($_gallery as $item)
+                                    {
+                                        $_image = $item->getFile();
+                                    }     
+                                }
+                            ?>                                    
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
+                                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(250,null); ?>"
+                                     alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                                
+                                <img class="hover-image" 
+                                     src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image',$_image)->keepFrame(false)->resize(250,null); ?>"
+                                     alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                            
+                            </a>
+                            
+                            <a href="#" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>');" class="btn-cart btn-cart-icon">#</a>
+                            
+                            <div class="promo-container">
+                                <?php 
+                                    $_promo = $this->helper('sixtyone/data')->getPromoLabels($_product);
+                                    echo $_promo['sale'];                        
+                                    echo $_promo['new'];                        
+                                ?>   
+                            </div>                                
+
+                            <h2 class="item fn product-name">
+                                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+                            </h2>
+                            <p class="short-description"><?php echo substr($_product->getShortDescription(), 0,150);?></p>
+                            <?php if($_product->getRatingSummary()): ?>
+                                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                            <?php endif; ?>
+                            <div class="price-box pricerange">
+                                <span class="price"><?php echo $_currency; ?><?php echo number_format($_product->getFinalPrice(),2); ?></span>
+                            </div>
+                            <div class="center">
+                                <a href="#" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>');" class="btn-cart btn-cart-icon">#</a>
+                            </div>
+
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <div class="grid_2 alpha">
+            <div class="navigation-buttons left">
+                <?php if ($collection->getSize() >3): ?>
+                    <span class="button scroll-right"></span>
+                <?php endif; ?>
+            </div>
+    </div>
+</section>
+<?php endif ?>
+

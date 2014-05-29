@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <translate>
+        <modules>
+            <Magazento_Ajaxnavigation>
+                <files>
+                    <default>Magazento_Ajaxnavigation.csv</default>
+                </files>
+            </Magazento_Ajaxnavigation>
+        </modules>
+    </translate>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ajaxnavigation translate="title" module="ajaxnavigation">
+                                        <title>Ajax Catalog Navigation</title>
+                                    </ajaxnavigation>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+ </config>

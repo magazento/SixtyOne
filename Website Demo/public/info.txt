@@ -1,0 +1,35 @@
+Optimize catalog navigation with Ajax!  AjaxNavigation will make your Magento products catalog more friendly and useful without reloading whole page. Let your customers save their time and focus on products.
+
+General:
+- Makes catalog browsing process much easier 
+- Increases store products catalog visibility
+- Range slider for price attribute
+- No page reloading on catalog browsing
+- Supports all magento versions from CE 1.4+, EE 1.8 +
+- Uses JQuery and JQuery UI libraries
+- Speeds up your magento store by reducing requests to the server
+
+Design & Customization:
+- Easy to change design, simply edit CSS as you edit template
+- No Magento core files modification
+
+Features:
+- Support free guarantee
+- Upgrade free guarantee
+- HTML/CSS validation
+- Easy to install, easy to upgrade, just copy to use
+- Friendly and flexible configuration
+- Support multiple stores and multiple languages
+- Easy to customize front-end via HTML/CSS
+- 100% open-source
+- Unlimited domains
+
+Setup:
+- Easy installation/upload files and you are done
+
+Adminstration:
+- No administration, extension works initially
+
+Support:
+- Email support for our clients
+- Free upgrades at least in current version branch 

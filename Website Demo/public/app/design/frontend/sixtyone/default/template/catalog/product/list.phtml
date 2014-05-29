@@ -1,0 +1,265 @@
+<?php
+/**
+ *
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+
+<?php $_currency =  Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?>
+<?php $_productCollection=$this->getLoadedProductCollection() ?>
+<?php if(!$_productCollection->count()): ?>
+<div class="no-products-container">
+    <div class="big-shopping-cart">&nbsp;</div>
+    <p class="no-products">
+        <?php echo $this->__('There are no products matching the selection.') ?>
+        <br/>
+        <button type="button"  class="button" onclick="window.history.back();"><span><span><?php echo $this->__('Return to Previous page') ?></span></span></button>
+    </p>
+
+    <?php $_block = Mage::getModel('cms/block')->load('no_products_category') ?>
+    <br class="clear">
+    <h2 class="no-product-block-title"><?php echo $_block->getTitle(); ?></h2>
+    <div class="no-product-block-content">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('no_products_category')->toHtml();?>
+    </div>
+
+</div>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+        <li class="hreview-aggregate hproduct item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+
+            <table class="horizontal-item" border="0">
+              <tr>
+                <td style="vertical-align:middle">
+
+                    <?php
+                        $_gallery = Mage::getModel('catalog/product')->load($_product->getId())->getMediaGalleryImages();
+                        $_image = null;
+                        if (count($_gallery)) {
+                            foreach ($_gallery as $item)
+                            {
+                                $_image = $item->getFile();
+                            }
+                        }
+                    ?>
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(200,null); ?>"
+                             alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+
+                        <img class="hover-image"
+                             src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image',$_image)->keepFrame(false)->resize(200,null); ?>"
+                             alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+
+                        <div class="promo-container">
+                            <?php
+                                $_promo = $this->helper('sixtyone/data')->getPromoLabels($_product);
+                                echo $_promo['sale'];
+                                echo $_promo['new'];
+                            ?>
+                        </div>
+
+                    </a>
+
+                </td>
+                <td style="vertical-align:middle">
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $_product->getName()?></a></h2>
+
+                        <?php if($_product->getRatingSummary()): ?>
+                        <div class="description">
+                            <?php if($_product->getRatingSummary()): ?>
+                                <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+                        <div class="desc std">
+                            <?php echo nl2br($_product->getShortDescription()) ?>
+                        </div>
+
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+
+                </td>
+                <td style="vertical-align:middle">
+                    <div class="product-actons">
+                        <div class="actions">
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>"
+                                        class="button btn-cart"
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                    <span class="btn-cart-icon"></span><span class="note"><?php echo $this->__('Add to Cart') ?></span>
+                                </button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                                <div class="extra-act">
+                                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                        <a rel="nofollow" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><i class="icon-heart"></i></span></a>
+                                    <?php endif; ?>
+                                    <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                        <a rel="nofollow" href="<?php echo $_compareUrl ?>" class="link-compare"> <i class="icon-exchange"></i> </a>
+                                    <?php endif; ?>
+                                </div>
+                        </div>
+                    </div>
+
+                </td>
+              </tr>
+            </table>
+            <?php if ($_iterator != sizeof($_productCollection) ):?>
+                <div class="divider-wrapper">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"><i class="icon-stop"></i></div>
+                </div>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <!--<script type="text/javascript">decorateList('products-list', 'none-recursive')</script>-->
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <ul class="products-grid">
+        <?php $right = false; $start=false; $i=4; foreach ($_productCollection as $_product): ?>
+            <?php
+
+
+
+                $i++;
+                $imageNormalSize=200;
+                $imageDetailedSize=200;
+                $isBigclass='normalimage';
+
+                if ((($i) % 15) == 0 ) {
+                    $i=5;
+                }
+                if (!$right) {
+                    if (($i % 5) == 0 ) {
+                        $right = true;
+                        $imageNormalSize=550;
+                        $imageDetailedSize=550;
+                        $isBigclass='bigimage';
+                    }
+                }
+
+                if ($right) {
+                    if (($i % 12) == 0 ) {
+                        $right = false;
+                        $imageNormalSize=550;
+                        $imageDetailedSize=550;
+                        $isBigclass='bigimage right';
+                    }
+                }
+
+
+                if ((($i % 5) == 0 ) && $start){
+                    echo '<li class="product-grid-divider">
+                                <div class="divider-wrapper">
+                                    <div class="divider-line"></div>
+                                    <div class="divider-diamond"><i class="icon-stop"></i></div>
+                                </div>
+                          </li>';
+                }
+
+                $start=true;
+
+            ?>
+            <li class="hreview-aggregate hproduct item <?php echo $isBigclass;?>">
+                <div class="product-item">
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->getImageLabel($_product, 'small_image') ?>" class="url product-image">
+                        <img class="photo fn"
+                             src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize($imageNormalSize,null); ?>"
+                             alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>"
+                             />
+                    </a>
+                    <div class="promo-container">
+                        <?php
+//                        echo $i;
+                        $_promo = $this->helper('sixtyone/data')->getPromoLabels($_product);
+                        //echo $_promo['sale'];
+                        //echo $_promo['new'];
+                        ?>
+                    </div>
+                    <div class="namebox">
+                        <h2 class="product-name">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+                        </h2>
+                        <div class="price-box pricerange">
+                            <span class="price"><?php echo $_currency; ?><?php echo number_format($_product->getFinalPrice(),2); ?></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="product-item-detailed">
+                    <?php
+                        $_gallery = Mage::getModel('catalog/product')->load($_product->getId())->getMediaGalleryImages();
+                        $_image = null;
+                        if (count($_gallery)) {
+                            foreach ($_gallery as $item)
+                            {
+                                $_image = $item->getFile();
+                            }
+                        }
+                    ?>
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->getImageLabel($_product, 'small_image') ?>" class="url product-image">
+                        <img class="photo fn"
+                             src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image',$_image)->keepFrame(false)->resize($imageDetailedSize,null); ?>"
+                             alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>"
+                             />
+                    </a>
+
+                    <div class="namebox">
+                        <div class="actions">
+
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>"
+                                        class="button btn-cart"
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                    <span class="btn-cart-icon"></span></span>
+                                </button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+
+                            <div class="extra-act">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <a rel="nofollow" href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><i class="icon-heart"></i></span></a>
+                                <?php endif; ?>
+                                <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <a rel="nofollow" href="<?php echo $_compareUrl ?>" class="link-compare"> <i class="icon-exchange"></i> </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="price-box pricerange">
+                            <span class="price"><?php echo $_currency; ?><?php echo number_format($_product->getFinalPrice(),2); ?></span>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+    <!--<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>-->
+    <?php endif; ?>
+
+    <?php //echo $this->getToolbarHtml() ?>
+</div>
+<?php endif; ?>

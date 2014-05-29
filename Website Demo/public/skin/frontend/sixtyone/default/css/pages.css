@@ -1,0 +1,88 @@
+
+
+/* Login ================================================================================ */
+.customer-account-forgotpassword .page,
+.customer-account-login .page,
+.customer-account-create .page  {
+    background: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.customer-account-forgotpassword .main-container .account-forgotpassword,
+.customer-account-create .main-container .account-create,
+.customer-account-login .main-container .account-login {
+    margin: 100px;
+    padding: 20px 20px 100px 20px;
+    background: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+/* Page Heading */
+.page-title { padding:0 0 5px; margin:10px 0 10px; }
+.account-login .page-title h1,
+.account-create .page-title h1 {
+    line-height: 1.8em;
+}
+.account-login .page-title .page-icon,
+.account-create .page-title .page-icon {
+    float: left;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    height: 43px;
+    width: 43px;
+    margin-right: 15px;
+}
+
+
+
+
+/* Homepage ================================================================================ */
+
+.homepage-slider {
+    z-index: 1;
+    width: 100%;
+    /*overflow: hidden;*/
+}
+
+.homepage-slider .header-slider-image {
+    border-left: 2px solid #000;
+    border-top: 0;
+    border-bottom: 0;
+}
+.homepage-slide-container {
+    position: relative;
+}
+.homepage-slide-cover{
+
+}
+.homepage-slide-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.homepage-slide-content-data {
+    padding: 8%;
+    line-height: 2.3em;
+}
+
+
+.homepage-banner-left,
+.homepage-banner-right{
+    text-align: justify;
+}
+.homepage-banner-center {
+
+}
+
+.homepage-slider .flex-control-nav {
+    width: 100%;
+    position: absolute;
+    bottom: 7px;
+    text-align: center;
+}

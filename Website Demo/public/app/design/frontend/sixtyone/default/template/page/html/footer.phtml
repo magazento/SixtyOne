@@ -1,0 +1,153 @@
+<?php
+/**
+ *
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<div class="footer-banners container_16">
+    <div class="grid_16">
+        <?php echo $this->getChildHtml('footer_categoy_banners') ?>
+    </div>
+</div>
+<?php echo $this->getChildHtml('product_viewed') ?>
+<footer>
+    <div class="footer-start">
+        <div class="wideimage" style="background: transparent url(<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/wideimage/wide_image2'); ?>) 50% 50%  no-repeat; background-size: cover;">
+            <div class="footer-container container_16">
+                <div class="grid_3">
+                    <div class="icon"><i class="icon-globe"></i></div>
+                </div>
+                <div class="grid_13">
+                    <div class="info-text"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sale_divider')->toHtml(); ?> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-top">
+        <div class="footer-container container_16">
+            <div class="grid_5">
+                <div class="footer-block">
+                </div>
+            </div>
+            <div class="grid_6">
+                <div class="footer-block section-heading">
+                    <h2><?php echo $this->__('Company Information');?></h2>
+
+                    <div class="dot-divider"></div>
+                    <p><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('company_information')->toHtml(); ?></p>
+
+                    <div class="social-links">
+                        <?php if (Mage::getStoreConfig('sixtyone/general/twitter_link')):?>
+                            <a class="footer-social-icon" href="<?php echo Mage::getStoreConfig('sixtyone/general/twitter_link'); ?>"><i class="icon-twitter"></i></a>
+                        <?php endif;?>
+                        <?php if (Mage::getStoreConfig('sixtyone/general/pinterest_link')):?>
+                            <a class="footer-social-icon" href="<?php echo Mage::getStoreConfig('sixtyone/general/pinterest_link'); ?>"><i class="icon-pinterest"></i></a>
+                        <?php endif;?>
+                        <?php if (Mage::getStoreConfig('sixtyone/general/linkedin_link')):?>
+                            <a class="footer-social-icon" href="<?php echo Mage::getStoreConfig('sixtyone/general/linkedin_link'); ?>"><i class="icon-linkedin"></i></a>
+                        <?php endif;?>
+                        <?php if (Mage::getStoreConfig('sixtyone/general/google_link')):?>
+                            <a class="footer-social-icon" href="<?php echo Mage::getStoreConfig('sixtyone/general/google_link'); ?>"><i class="icon-google-plus"></i></a>
+                        <?php endif;?>
+                        <?php if (Mage::getStoreConfig('sixtyone/general/youtube_link')):?>
+                            <a class="footer-social-icon" href="<?php echo Mage::getStoreConfig('sixtyone/general/youtube_link'); ?>"><i class="icon-youtube"></i></a>
+                        <?php endif;?>
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5">
+                <div class="footer-block">
+                </div>
+            </div>
+        </div>
+        <div class="footer-container container_16">
+            <div class="grid_2">
+                <div class="footer-block">
+                </div>
+            </div>
+            <div class="grid_12 googlemap-mobile">
+                    <script type="text/javascript"
+                        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+                    </script>
+
+                    <script>
+                        var myCenter = new google.maps.LatLng(<?php echo Mage::getStoreConfig('sixtyone/general/googlemap'); ?>);
+                        var marker;
+
+                        function initialize() {
+                            var mapProp = {
+                                center: myCenter,
+                                zoom: 7,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            };
+
+                            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                            marker = new google.maps.Marker({
+                                position: myCenter,
+                                animation: google.maps.Animation.BOUNCE
+                            });
+
+                            marker.setMap(map);
+                        }
+
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                    </script>
+                    <div class="googlemap-container">
+                        <div id="googleMap" style="width:auto;height:300px;"></div>
+                    </div>
+            </div>
+            <div class="grid_2">
+                <div class="footer-block">
+                </div>
+            </div>
+        </div>
+        <div class="footer-container container_16">
+            <div class="grid_2">
+                <div class="footer-block">
+                </div>
+            </div>
+            <div class="grid_4 contacts-mobile">
+                <div class="footer-block small center section-heading">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_one')->toHtml(); ?>
+                </div>
+            </div>
+            <div class="grid_4 contacts-mobile">
+                <div class="footer-block small center section-heading">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_two')->toHtml(); ?>
+                </div>
+            </div>
+            <div class="grid_4 contacts-mobile">
+                <div class="footer-block small center section-heading">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_three')->toHtml(); ?>
+                </div>
+            </div>
+            <div class="grid_2">
+                <div class="footer-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="wideimage" style="background: transparent url(<?php echo Mage::getBaseUrl('media') . '/magazento_sixtyone/' . Mage::getStoreConfig('sixtyone/wideimage/wide_image3'); ?>) 50% 50%  no-repeat; background-size: cover;">
+            <div class="footer-container container_16">
+                <div class="grid_4">
+                    <div class="footer-block">
+                    </div>
+                </div>
+                <div class="grid_8">
+                    <div class="footer-block">
+                        <?php echo $this->getChildHtml('newsletter') ?>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="footer-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

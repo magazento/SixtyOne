@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    
+    <headerslider_admin_slide_related>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="headerslider/admin_slide_edit_tab_related" name="related.grid"/>
+            <block type="admin/widget_grid_serializer" name="related_grid_serializer">
+                <reference name="related_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>related.grid</grid_block_name>
+                        <data_callback>getSelectedrelatedProducts</data_callback>
+                        <hidden_input_name>links[related]</hidden_input_name>
+                        <reload_param_name>products_related</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </headerslider_admin_slide_related>
+    <headerslider_admin_slide_relatedgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="headerslider/admin_slide_edit_tab_related" name="related.mgrid"/>
+        </block>
+    </headerslider_admin_slide_relatedgrid>
+    
+</layout>

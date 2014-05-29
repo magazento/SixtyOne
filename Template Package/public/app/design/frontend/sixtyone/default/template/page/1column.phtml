@@ -1,0 +1,51 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->getLang() ?>">    
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <?php echo $this->getChildHtml('breadcrumbs') ?>
+        <div class="main-container col1-layout container_16">
+            <div class="grid_16">            
+                <div class="main">        
+                    <div class="col-main">
+                        <?php echo $this->getChildHtml('global_messages') ?>
+                        <?php echo $this->getChildHtml('content') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php
+        $page = Mage::app()->getFrontController()->getRequest()->getRouteName();
+        if ($page == 'cms') {
+            $cmsSingletonIdentifier = Mage::getSingleton('cms/page')->getIdentifier();
+            $homeIdentifier = Mage::app()->getStore()->getConfig('web/default/cms_home_page');
+            if ($cmsSingletonIdentifier === $homeIdentifier) {
+                $filter = new Mage_Widget_Model_Template_Filter();
+                $_widget = $filter->filter('{{widget type="sixtyone/saleproducts" with_image="1" template="magazento/product_widget_sale.phtml" static_block="sale_products" products_amount="10"}}');
+                echo $_widget;
+            }
+        }
+        ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

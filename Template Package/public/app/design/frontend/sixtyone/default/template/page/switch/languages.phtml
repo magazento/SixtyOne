@@ -1,0 +1,30 @@
+<?php
+/**
+ * 
+ * @category  design
+ * @package   sixtyone_default
+ * @author    Ivan Proskuryakov http://www.magazento.com <volgodark@gmail.com>
+ * @copyright Copyright (C)2013 Magazento
+ */
+?>
+<?php if(count($this->getStores())>1): ?>
+<?php
+$stores = array();
+$_current = null;
+foreach ($this->getStores() as $_lang) {
+    $_selected = $_selected_option = '';
+    if ( ($_lang->getId() == $this->getCurrentStoreId()) ) {
+        $_current =  $_lang;
+        $_selected = ' class="selected"';
+        $_selected_option = ' selected="selected"';
+    }
+    $stores[] = '<li'. $_selected .'><a style="background-image:url(\''. $this->getSkinUrl('images/flags/'.$_lang->getCode().'.png') .'\');" href="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</a></li>';
+    $select_stores[] = '<option '.$_selected_option.' value="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</option>';
+} 
+
+?>
+
+<p class="small-heading"><?php echo $this->__('Language');?></p>
+<ul><?php echo implode('', $stores); ?></ul>
+
+<?php endif; ?>
